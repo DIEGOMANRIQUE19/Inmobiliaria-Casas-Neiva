@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+{% block encabezado %}
+    {% include "encabezado.html" %}
+{% endblock %}
+{% block menu %}
+    {% include "menu.html" %}
+{% endblock %}
+{% block contenido %}
+    <div class="container">
+        <div class="container">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 m-auto">
+                        <h1 class="bg-success">
+                            <center>Registro de Propietario</center>
+                        </h1>
+        <form action="/agregarPropietario/" method="post">
+            {% csrf_token %}
+            <label for="">Nombre del Propietario</label>
+            <input type="text" class="form-control"  name="txtNombre" id="txtNombre">
+            <label for="">Correo </label>
+            <input type="text" class="form-control"  name="txtCorreo" id="txtCorreo">
+            <label for="">Telefono</label>
+            <input type="number" class="form-control"  name="txtTelefono" id="txtTelefono">
+            <label for="">Fecha</label>
+            <input type="date" class="form-control" name="txtFecha">
+            <input type="submit" class="btn btn-success mt-4" value="Enviar" >
+        </form>
+    </div>
+{% endblock %}

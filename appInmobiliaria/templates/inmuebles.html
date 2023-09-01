@@ -1,0 +1,49 @@
+{% extends "index.html" %}
+{% block encabezado %}
+{% include "encabezado.html" %}
+{% endblock %}
+{% block menu %}
+{% include "menu.html" %}
+{% endblock %}
+{% block contenido %}
+<h1 CLASS="text-center" 2>Inmuebles Disponibles</h1>
+<div class="row row-cols-1 row-cols-md-3 g-4 m-4">
+  {% for inmueble in listaInmuebles %}
+  <div class="col">
+    <div class="card h-100">
+      <img src="../media/{{inmueble.imagenInmueble}}" class="card-img-top" alt="inmuebleFoto" width="500" height="200">
+      <div class="card-body">
+        <h5 class="card-title">{{inmueble.nombreInmueble}}</h5>
+        <span class="card-text">Dirección: {{inmueble.direccionInmueble}}</span><br>
+        <span class="card-text">Tipo de inmueble: {{inmueble.tipoInmueble}}</span>
+        <p class="card-text">{{inmueble.descripcionInmueble}}</p>
+        <p class="card-text">Precio: ${{inmueble.precioInmueble}}</p>
+      </div>
+      <div class="card-footer">
+        <a href="../vistaInmueble" class="btn btn-primary">Detalles</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<!-- <div class="row">
+  {% for inmueble in inmuebles %}
+  <div class="col-md-4 m-4">
+    <div class="card shadow mt-3" style="width: 18rem;">
+      <img src="../static/img/lasAcacias.jpg" class="card-img-top" alt="..." width="500" height="200">
+      <div class="card-body">
+        <h5 class="card-title">SE VENDE CASA EN EL BARRIO LAS ACACIAS SEGUNDA ETAPA DE SEGUNDO PISO</h5>
+        <p class="card-text">$120.000.000</p>
+        <a href="#" class="btn btn-primary">Detalles</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div> -->
+<footer class="bg-dark text-light">
+  {% include "piePagina.html" %}
+</footer>
+</div>
+
+{% endblock %}

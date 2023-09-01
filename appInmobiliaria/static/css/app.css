@@ -1,0 +1,21 @@
+.centrado {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header {
+    height: 60px;
+}
+
+section {
+    height: 500px;
+}
+
+.navbar-nav :hover{
+    background-color: rgb(255, 123, 0);
+}
+
+.navbar-nav{
+    margin-left: 12px;
+}

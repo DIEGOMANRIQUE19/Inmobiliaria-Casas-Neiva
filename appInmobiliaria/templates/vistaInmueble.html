@@ -1,0 +1,84 @@
+{% extends "index.html" %}
+{% block encabezado %}
+    {% include "encabezado.html" %}
+{% endblock %}
+{% block menu %}
+    {% include "menu.html" %}
+{% endblock %}
+{% block contenido %}
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-6 mb-5"> 
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="../static/img/El Manantial/Manantial01.jpg" alt="Imagen inmueble" class="img-fluid" style="width:100%;height:300px">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="../static/img/El Manantial/Manantial02.jpg" alt="Imagen inmueble" class="img-fluid" style="width:100%;height:300px">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="../static/img/El Manantial/Manantial03.jpg" alt="Imagen inmueble" class="img-fluid" style="width:100%;height:300px">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            <div class="mt-1 mx-auto text-center">
+                <div class="d-inline" >
+                    <img src="../static/img/El Manantial/Manantial02.jpg" alt="Imagen inmueble" class="img-fluid mx-1" style="width:15%;height:60px">
+                    <img src="../static/img/El Manantial/Manantial03.jpg" alt="Imagen inmueble" class="img-fluid mx-1" style="width:15%;height:60px">
+                    <img src="../static/img/El Manantial/Manantial04.jpg" alt="Imagen inmueble" class="img-fluid mx-1" style="width:15%;height:60px">
+                    <img src="../static/img/El Manantial/Manantial05.jpg" alt="Imagen inmueble" class="img-fluid mx-1" style="width:15%;height:60px">
+                    <img src="../static/img/El Manantial/Manantial06.jpg" alt="Imagen inmueble" class="img-fluid mx-1" style="width:15%;height:60px">
+                </div>
+            </div>  
+        </div>
+        <tbody>
+            {% for p in inmuebles%}
+            <tr>
+                <td>{{p.tipoInmueble}}</td>
+                <td>{{p.tituloInmueble}}</td>
+                <td>{{p.descripcionInmueble}}</td>
+                <td>{{p.precioInmueble}}</td>
+                <td>{{p.ciudadInmueble}}</td>
+                <td>{{p.barrioInmueble}}</td>
+                <td>{{p.imagenInmueble}}</td>
+                <td>{{p.fechaInmueble}}</td>
+                <td>{{p.estadoInmueble}}</td>
+                <td class="text-center">
+                    <a href="consultarInmueble/{{p.id}}"><i class="fas fa-edit text-succes"></i></a>
+                    <i class="fas fa-trash text-danger" onclick="eliminar('{{p.proCodigo}}')"></i>
+                </td>
+            </tr>
+            {%endfor %}
+        </tbody>
+        
+        <div class="col-6">
+            <div class="container"> 
+                <li><i class="fa-solid fa-house-chimney"></i> 
+                    Vende Casa en el Altico de 2 pisos cerca al centro</li>
+                <li> <i class="fa-solid fa-comment-exclamation"></i> 
+                    Consta de 5 habitaciones, 3 con closet, cocina semi-integral, aire acondicionado abajo, 3 baños, patio de ropa, garaje para carro, 8*18, Excelente ubicacion</li>
+                <li><i class="fa-solid fa-phone"></i> 
+                    3134123300 - 8736452 Llamada telefónica- WhatsApp</li>
+                <li><i class="fa-solid fa-money-bill-wave"></i> 
+                    Precio Venta $300.000.000</li>
+                <li><i class="fa-solid fa-house-laptop"></i>
+                     Solicitar Informacion</li>
+                
+            </div>
+        </div>
+
+  
+{% endblock %}
+{% block piePagina %}
+    {% include "piePagina.html" %}
+{% endblock %}

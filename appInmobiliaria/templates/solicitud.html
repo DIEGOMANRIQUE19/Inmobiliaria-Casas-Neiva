@@ -1,0 +1,123 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 m-auto">
+                <h1 class="bg-success">
+                    <center>Solicitud de Inmueble</center>
+                </h1>
+               
+                <table id="tbltSolicitudes" align="center" class="table table-hover table-bordered" style="width: 90%;">
+                    <thead>
+                        <tr>
+                            <th>identificacion</th>
+                            <th>nombre</th>
+                            <th>licencia</th>
+                            <th>aceptar/negar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="fila" class="primeraFila">
+                            <td id="sIdentificacion"></td>
+                            <td id="sNombres"></td>
+                            <td id="sLicencia"></td>
+                            <td id="scep"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Asignar Licencias-->
+    <div class="modal fade" id="modalasignar" tabindex="-1" aria-labelledby="licenciasPorProgramaLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header bg-success">
+                    <h5 class="modal-title">ASIGNAR LICENCIAS</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                <div class="container-fluid">
+                        <div class="col-sm-6 m-auto">
+                            <form action="" id="frmasignar" name="frmasignar" method="POST">
+                                <div class="form-group">
+                                    <label for="fname">Usuario</label>
+                                    <input class="form-control" type="text" id="fname" name="fname"
+                                        placeholder="Juan Esteban Betancourt" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lname">Licencia</label>
+                                    <input class="form-control" type="text" id="lname" name="lname" placeholder="Office 365" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lname">fecha de expedicion</label>
+                                    <input class="form-control" type="date" min="2017-04-01" id="fecha" name="fecha">
+                                </div>
+                                <input type="button" class="btn btn-success" value="Asignar" id="Asignar" name="Asignar">
+                                <!--Campos ocultos -->
+                                <input type="hidden" value="" id="idusuario" name="idusuario">          
+                                <input type="hidden" value="" id="idlicencia" name="idlicencia">
+                                <input type="hidden" value="" id="idprograma" name="idprograma"> 
+                                <input type="hidden" value="acptsol" id="accion" name="accion"> 
+                                <input type="hidden" value="" name="idsolicitud" id="idsolicitud">  
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cerrar Ventana</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal negar Licencias-->
+    <div class="modal fade" id="modalnegar" tabindex="-1" aria-labelledby="licenciasPorProgramaLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header bg-success">
+                    <h5 class="modal-title">ASIGNAR LICENCIAS</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                <form name="frmnegar" id="frmnegar" enctype="multipart/form-data" method="POST">            
+                <table style="width: 60%" align="center" border="1" class="table table-bordered">
+                <tbody>
+
+                    <tr>
+
+                        <td>
+                            <div class="form-group">
+                                <label for="txtNombres">motivo de negacion</label>
+                                <br>
+                                <textarea name="textarea" rows="10" cols="50" id="motivo" name="motivo" placeholder="Escriba el motivo por el cual niega la solicitud de la licecia" ></textarea>
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    </tbody>
+                </table>
+                <input type="button" id="negar" name="negar" value="negar" class="btn btn-sm btn-danger" >
+            </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cerrar Ventana</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>

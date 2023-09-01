@@ -1,0 +1,46 @@
+{% extends "index.html" %}
+{% block encabezado %}
+    {% include "encabezado.html" %}
+{% endblock %}
+{% block menu %}
+    {% include "menu.html" %}
+{% endblock %}
+{% block contenido %}
+    <div class="container">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 m-auto">
+                    <h1 class="bg-success">
+                        <center>Registro de Inmueble</center>
+                    </h1>
+        <form action="/agregarInmuebleDatos/" method="post">
+            {% csrf_token %}
+            <label for="">Nombre de Inmueble:</label>
+            <input type="text" class="form-control" name="txtnombreInmueble" id="txtnombreInmueble">
+            <label for="">Tipo de Inmueble</label>
+            <!-- <input type="text" class="form-control" name="txttipoInmueble" id="txttipoInmueble"> -->
+            <select class="form-control" name="txtTipoInmueble" id="txtTipoInmueble">
+                <option value="" selected disabled>Seleccione...</option>
+                {% for inmueble in tiposInmueble %}
+                    <option value="{{inmueble.0}}">{{inmueble.0}}</option>
+                {% endfor %}
+            </select>
+            <label for="">Precio</label>
+            <input type="number" class="form-control" name="txtPrecioInmueble" id="txtPrecioInmueble">
+            <label for="">Descripcion</label>
+            <input type="text" class="form-control" name="txtDescripcionInmueble" id="txtDescripcionInmueble">
+            <label for="">Dirección</label>
+            <input type="text" class="form-control" name="txtDireccion" id="txtDireccion">
+            <label for="">Fecha</label>
+            <input type="date" class="form-control" name="txtFecha">
+            <label for="">Fotos del Inmueble</label>
+            <br>
+            <input type="file" id="uploads" name="txtImagen" accept=".jpg, .jpeg, .png, .svg, .gif" multiple>
+            <br>
+            <input type="submit" class="btn btn-success mt-4" value="Agregar" >
+        </form>
+    </div>
+
+
+
+{% endblock %}

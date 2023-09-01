@@ -1,0 +1,142 @@
+{% extends "index.html" %}
+{% block encabezado %}
+    {% include "encabezado.html" %}
+{% endblock %}
+{% block menu %}
+    {% include "menu.html" %}
+{% endblock %}
+{% block contenido %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Contacto</title>
+  <link rel="stylesheet" type="text/css" href="contact-form.css">
+  <style>
+    /* Estilos de CSS adicionales aquí */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+
+    .contact_form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .formulario {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    h3 {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    form {
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .obligatorio {
+      color: #FF0000;
+    }
+
+    button {
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .aviso {
+      font-size: 12px;
+      color: #666;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .formulario {
+        width: 100%;
+        padding: 20px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="contact_form">
+    <div class="formulario">
+      <h1>Formulario de contacto</h1>
+      <h3>Escríbenos y en breve te contactaremos</h3>
+      <form action="submeter-formulario.php" method="post">
+        <p>
+          <label for="nombre" class="colocar_nombre">Nombre
+            <span class="obligatorio">*</span>
+          </label>
+          <input type="text" name="introducir_nombre" id="nombre" required placeholder="Escribe tu nombre">
+        </p>
+        <p>
+          <label for="email" class="colocar_email">Email
+            <span class="obligatorio">*</span>
+          </label>
+          <input type="email" name="introducir_email" id="email" required placeholder="Escribe tu Email">
+        </p>
+        <p>
+          <label for="telefone" class="colocar_telefono">Teléfono</label>
+          <input type="tel" name="introducir_telefono" id="telefono" placeholder="Escribe tu teléfono">
+        </p>
+        <p>
+          <label for="mensaje" class="colocar_mensaje">Mensaje
+            <span class="obligatorio">*</span>
+          </label>
+          <textarea name="introducir_mensaje" class="texto_mensaje" id="mensaje" required placeholder="Deja aquí tu comentario..."></textarea>
+        </p>
+        <button type="submit" name="enviar_formulario" id="enviar">Enviar</button>
+        <p class="aviso">
+          <span class="obligatorio">*</span> Los campos son obligatorios.
+        </p>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "index.html" %}
+{% block encabezado %}
+    {% include "encabezado.html" %}
+{% endblock %}
+{% block menu %}
+    {% include "menu.html" %}
+{% endblock %}
+{% block contenido %}
+    <br>
+    <form action="/agregarProducto" enctype="multipart/form-data" method="post" class="w-50" style="margin: 0 auto"
+    <h3 class="text-center bg-secondary text white">CREAR INMUEBLE</h3>
+        <div class="form-group">
+            <input type="number" name="txtCodigo" id="txtCodigo" required
+            placeholder="CODIGO DEL PRODUCTO" class="form-control" value="{% if producto %}{{producto.proCodigo}}{% endif%}"> 
+        </div>
+        <div class="form-group">
+            <input type="text" name="txtProducto" id="txtProducto" required
+            placeholder="NOMBRE DEL PRODUCTO" class="form-control" value="{% if producto %}{{producto.proNombre}}{% endif%}">
+        </div>
+        <div class="form-group">
+            <input type="number" name="txtPrecio" id="txtPrecio" required
+            placeholder="PRECIO DEL PRODUCTO" class="form-control" value="{% if producto %}{{producto.proPrecio}}{% endif%}">
+        </div>
+        <div class="form-group"
+            <select name="cbCategoria" id="cbCategoria" class="form-control" required> 
+                <option value="">Seleccione Categoría</option>                         
+                {% for p in productos %}
+                <tr>
+                    <td>{{p.proCodigo}}</td>
+                    <td>{{p.proNombre}}</td>
+                    <td class="text-right">{{p.proPrecio}}</td>
+                    <td>{{p.categoria}}</td>
+                    <td class="text-center"><img src="../static/Imagenes/{{p.proCodigo}}.jpg" width="30"></td>
+                    <td class="text-center">
+                        <a href="consultarProducto/{{p.idProducto}}"><i class="fas fa-edit text-succes"></i></a>
+                        <i class="fas fa-trash text-danger" onclick="eliminar('{{p.proCodigo}}')"></i>
+                    </td>
+                </tr>
+                {% endfor%}
+            </select>
+        </div>
+        <div class="form-group"
+            <input type="file" name="fileFoto" placeholder="imagen de la propiedad" class="form-control" accept=".jpg"
+        </div>
+        <div class="form-group"
+            <input type="submit" value="Agregar" class="btn btn-succes">
+            <a href="/listarProductos"><input type="button" value="Cancelar" class="btn btn-succes"></a>
+        <div>
+    </form>
+    <div class="text-center">{{mensaje}}</div>
+{% endblock %}
+{% block piePagina %}
+    {% include "piePagina.html" %}
+{% endblock %}
